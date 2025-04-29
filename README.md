@@ -21,7 +21,12 @@ AMN-DOS is a powerful multi-threaded stress testing and DoS simulation tool desi
 
 🧪 Usage
 
+$ python3 -m venv amn-env
+$ source amn-env/bin/activate
+$ pip install colorama
+$ pip install requests
 $ python3 amn-dos.py
+
 
 You'll be prompted to:
 
