@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMN-DOS · professional portfolio | Ali Moavia & Mehwish Naz</title>
+    <!-- Fonts: Inter (clean, corporate) + Fira Code for subtle code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f7fb;
+            font-family: 'Inter', sans-serif;
+            color: #1e2b3f;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -10px rgba(0,20,40,0.12), 0 8px 24px -8px rgba(0,32,64,0.1);
+            overflow: hidden;
+        }
+
+        /* header / tool identity */
+        .project-header {
+            padding: 2.5rem 3rem 1.5rem 3rem;
+            background: linear-gradient(135deg, #fafcff 0%, #ffffff 100%);
+            border-bottom: 1px solid #e2eaf2;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #5b6f87;
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb i {
+            font-size: 0.8rem;
+            color: #8a9bb5;
+        }
+        .breadcrumb a {
+            color: #1e4f8a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .title-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
+        }
+
+        .title-main h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(145deg, #0a2942, #1b3b5c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        .title-main .subhead {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #466282;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .title-main .subhead i {
+            color: #2f7e9e;
+        }
+
+        .creators-tag {
+            background: #edf3f9;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            display: flex;
+            gap: 2rem;
+            box-shadow: inset 0 1px 3px #00000010;
+        }
+        .creator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .creator i {
+            font-size: 1.6rem;
+            color: #1b4c6e;
+            background: white;
+            border-radius: 50%;
+            padding: 8px;
+            box-shadow: 0 4px 8px #00000010;
+        }
+        .creator-info h4 {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #0b2a41;
+        }
+        .creator-info p {
+            font-size: 0.85rem;
+            color: #55728c;
+        }
+
+        /* metadata bar */
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+            padding: 1.2rem 0 0.2rem 0;
+            border-top: 1px solid #dde5ef;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .meta-item i {
+            font-size: 1.3rem;
+            width: 32px;
+            color: #2c6282;
+        }
+        .meta-item .label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #6b7f99;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .meta-item .value {
+            font-weight: 600;
+            color: #1d344a;
+        }
+
+        /* main content */
+        .main-content {
+            padding: 2.5rem 3rem 3rem 3rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #163A5F;
+            margin: 2.2rem 0 1.5rem 0;
+            border-bottom: 2px solid #d4e0f0;
+            padding-bottom: 0.5rem;
+        }
+        .section-title i {
+            color: #2a6b9c;
+            font-size: 2rem;
+        }
+
+        .lead-text {
+            font-size: 1.2rem;
+            color: #234a6b;
+            background: #f0f6fe;
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            margin: 10px 0 30px 0;
+            border-left: 6px solid #326e9c;
+            box-shadow: 0 8px 16px -12px #183f5f30;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin: 35px 0 25px 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e1eaf2;
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 5px 0 #d1deed;
+            transition: 0.15s ease;
+        }
+        .feature-card:hover {
+            border-color: #8fb4d9;
+            box-shadow: 0 8px 0 #b2cbe4;
+        }
+        .feature-icon {
+            font-size: 2.4rem;
+            color: #1f5f8b;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #143650;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            color: #3b5570;
+            font-size: 0.95rem;
+        }
+        .feature-tag {
+            display: inline-block;
+            background: #e2edfb;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            margin-top: 18px;
+            color: #1b5385;
+        }
+
+        .tech-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 25px 0 30px 0;
+        }
+        .tech-badge {
+            background: #eaf1fa;
+            color: #1b4b74;
+            padding: 0.6rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #bdd2ec;
+        }
+
+        .code-sample {
+            background: #0b1e2f;
+            color: #dae5f5;
+            border-radius: 20px;
+            padding: 1.8rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 30px 0 25px 0;
+            border-left: 6px solid #4287b5;
+            overflow-x: auto;
+            box-shadow: 0 20px 30px -12px #102c4030;
+        }
+        .code-sample .comment {
+            color: #7b98b3;
+        }
+        .code-sample .keyword {
+            color: #ffb5a0;
+        }
+        .code-sample .func {
+            color: #b3e1ff;
+        }
+        .code-sample .string {
+            color: #c7e895;
+        }
+
+        .attack-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0 30px 0;
+        }
+        .attack-list li {
+            background: #ffffff;
+            border: 1px solid #bed6f0;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #1b4870;
+            box-shadow: 0 2px 4px #d4e2f5;
+        }
+        .attack-list li i {
+            color: #206694;
+            margin-right: 8px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e2ebf5;
+            margin: 40px 0 20px 0;
+        }
+
+        .footer-note {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 1.8rem 0 0.5rem 0;
+            color: #50748e;
+            border-top: 1px solid #d0ddee;
+            margin-top: 40px;
+        }
+        .footer-note .copyright {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline {
+            border: 1px solid #1b4c74;
+            background: transparent;
+            padding: 0.5rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #1b4c74;
+            transition: 0.15s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline:hover {
+            background: #1b4c74;
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            .project-header, .main-content { padding: 2rem 1.5rem; }
+            .title-row { flex-direction: column; align-items: flex-start; }
+            .creators-tag { width: 100%; justify-content: space-around; }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <!-- header area with professional identity -->
+        <div class="project-header">
+            <div class="breadcrumb">
+                <a href="#"><i class="fas fa-home"></i> portfolio</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>projects</span>
+                <i class="fas fa-chevron-right"></i>
+                <span style="font-weight: 600;">AMN-DOS</span>
+            </div>
+            <div class="title-row">
+                <div class="title-main">
+                    <h1>AMN-DOS</h1>
+                    <div class="subhead">
+                        <i class="fas fa-cubes"></i>
+                        <span>Advanced multi‑layer network assessment tool</span>
+                    </div>
+                </div>
+                <div class="creators-tag">
+                    <div class="creator">
+                        <i class="fas fa-user-tie"></i>
+                        <div class="creator-info">
+                            <h4>Ali Moavia</h4>
+                            <p>offensive security engineer</p>
+                        </div>
+                    </div>
+                    <div class="creator">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="creator-info">
+                            <h4>Mehwish Naz</h4>
+                            <p>network protocol specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- meta information / tech stack -->
+            <div class="meta-bar">
+                <div class="meta-item">
+                    <i class="fas fa-code-branch"></i>
+                    <div><span class="label">language</span><div class="value">Python 3.11+</div></div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-shield-halved"></i>
+                    <div><span class="label">layers</span><div class="value">HTTP/s · TCP · slowloris</div></div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-microchip"></i>
+                    <div><span class="label">concurrency</span><div class="value">thread‑based (unlimited)</div></div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div><span class="label">developed</span><div class="value">Q1 2025</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main write‑up: professional tone -->
+        <div class="main-content">
+            <!-- overview -->
+            <div class="lead-text">
+                <i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i>
+                AMN-DOS is a proof‑concept stress tool that combines three distinct attack vectors into one modular framework. 
+                Built for educational and red team assessments, it demonstrates advanced socket handling, application‑layer evasion, and resource exhaustion patterns.
+            </div>
+
+            <!-- what it does / architecture highlights -->
+            <div class="section-title">
+                <i class="fas fa-diagram-project"></i> architecture & capabilities
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                    <h3>HTTP flood</h3>
+                    <p>Rotating user‑agents, referers and X‑Forwarded‑For spoofing. Uses <code style="background:#ecf3fb;">requests.get()</code> with low timeout to maximise request rate.</p>
+                    <span class="feature-tag">layer 7 evasion</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hourglass"></i></div>
+                    <h3>Slowloris</h3>
+                    <p>Partial HTTP headers sent every 15 seconds to hold connections open. Consumes server connection slots with minimal bandwidth.</p>
+                    <span class="feature-tag">CVE‑2007‑6750</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-plug"></i></div>
+                    <h3>TCP SYN flood</h3>
+                    <p>Rapid TCP handshake attempts using standard sockets with short timeouts. Demonstrates backpressure and connection queue saturation.</p>
+                    <span class="feature-tag">transport layer</span>
+                </div>
+            </div>
+
+            <!-- code insight with professional formatting -->
+            <div class="section-title">
+                <i class="fas fa-code"></i> core implementation
+            </div>
+            <p style="margin-bottom: 12px;">The tool uses <strong>Python threading</strong> to launch concurrent workers. Below is the slowloris handler – notice the keep‑alive mechanism via intermittent headers.</p>
+            <div class="code-sample">
+                <span class="comment"># slowloris attack : hold connection with partial headers</span><br>
+                <span class="keyword">def</span> <span class="func">send_slowloris</span>(host, port):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.connect((host, port))<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.send(<span class="string">f"GET /?{random.randint(0,1000)} HTTP/1.1\r\n"</span>.encode())<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.send(<span class="string">f"Host: {host}\r\n"</span>.encode())<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> <span class="string">True</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.send(<span class="string">f"X-a: {random.randint(1,5000)}\r\n"</span>.encode())<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(15)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">except</span> Exception:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="string">"[!] connection dropped"</span>)<br>
+                <span class="comment"># threading example</span><br>
+                threading.Thread(target=send_http_flood, args=(target_url,)).start()
+            </div>
+
+            <!-- technical stack as badges -->
+            <div class="tech-badge-container">
+                <span class="tech-badge"><i class="fab fa-python"></i> python3</span>
+                <span class="tech-badge"><i class="fas fa-network-wired"></i> raw sockets</span>
+                <span class="tech-badge"><i class="fas fa-arrows-spin"></i> multi‑threading</span>
+                <span class="tech-badge"><i class="fas fa-mask"></i> header randomization</span>
+                <span class="tech-badge"><i class="fas fa-clock"></i> slowloris technique</span>
+            </div>
+
+            <!-- attack modes / parameters (professional summary) -->
+            <div class="section-title">
+                <i class="fas fa-sitemap"></i> attack surfaces & configuration
+            </div>
+            <ul class="attack-list">
+                <li><i class="fas fa-bolt"></i> HTTP flood · concurrency 50+</li>
+                <li><i class="fas fa-bolt"></i> Slowloris · thread‑based hold</li>
+                <li><i class="fas fa-bolt"></i> TCP SYN · high‑frequency connect</li>
+                <li><i class="fas fa-sliders"></i> config: thread count, target URL/port</li>
+            </ul>
+            <p style="margin-bottom: 1.8rem;">Runtime parameters are collected interactively: target URL, attack mode (http/slowloris/tcp) and number of threads. The tool resolves domains for TCP mode and falls back gracefully.</p>
+
+            <!-- original banner is stripped but we keep a minimal tribute -->
+            <div style="background: #e2ebf7; border-radius: 16px; padding: 1.2rem 2rem; margin: 30px 0; border-left: 5px solid #1c5f8e;">
+                <i class="fas fa-quote-right" style="float:right; color:#406e90;"></i>
+                <p style="font-family: 'Fira Code', monospace; color:#1a3d5b; font-size:0.9rem;">
+                ⚙️ original banner (terminal style) <br>
+                <span style="color:#1a5d8f;">██╗  ██╗ █████╗ ███╗   ███╗███╗   ██╗</span>   <strong style="color:#0e3147;">AMN-DOS</strong><br>
+                <span style="color:#0a3855;">developed by Ali Moavia & Mehwish Naz – multi‑layer stress tool</span>
+                </p>
+            </div>
+
+            <!-- ethical / professional context -->
+            <hr>
+            <div style="display: flex; align-items: flex-start; gap: 20px; background: #f0f7ff; border-radius: 32px; padding: 2rem; margin: 30px 0;">
+                <i class="fas fa-shield" style="font-size: 3rem; color: #2b6c9e;"></i>
+                <div>
+                    <h3 style="font-weight: 700; color: #103858;">intended use & responsible disclosure</h3>
+                    <p style="color: #2b4b68;">AMN-DOS was created strictly for educational purposes, network security courses, and authorised red team engagements. The authors emphasise responsible usage and do not condone any unlawful activity. This project highlights low‑level socket programming, concurrency, and application‑layer fuzzing.</p>
+                </div>
+            </div>
+
+            <!-- footer with portfolio context -->
+            <div class="footer-note">
+                <div class="copyright">
+                    <i class="far fa-registered" style="color:#4a7291;"></i> 
+                    <span>Ali Moavia & Mehwish Naz · 2025 · all rights reserved</span>
+                </div>
+                <div>
+                    <a href="#" class="btn-outline"><i class="fab fa-github"></i> private repository</a>
+                    <a href="#" class="btn-outline" style="margin-left: 12px;"><i class="fas fa-envelope"></i> contact</a>
+                </div>
+            </div>
+
+            <!-- small note: portfolio piece -->
+            <p style="text-align: right; font-size: 0.8rem; color: #71869e; margin-top: 20px;">showcasing network tool development · updated feb 2026</p>
+        </div>
+    </div>
+</body>
+</html>
